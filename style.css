@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 * {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -11,82 +13,85 @@ html {
   background-size: cover;
 }
 body {
-  width: 100%;
-  min-height: 100%;
-  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+.wrap {
+  position: relative;
+  height: 75vh;
+  margin-top: 10vh;
 }
 .list {
-  position: fixed;
-  top: -10px;
-  left: 0;
-  width: 100vh;
-  height: calc(100vw);
-  scrollbar-width: none;
-  overflow: scroll;
-  transform: rotate(-90deg);
-  transform-origin: center calc(50vh);
-}
-.list::-webkit-scrollbar {
-  display: none;
-}
-.list::-webkit-scrollbar {
-  display: none;
-}
-.list::-webkit-scrollbar {
-  display: block;
-}
-.list .item {
+  position: absolute;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 10px auto;
-  width: 300px;
-  height: 300px;
-  transform: rotate(90deg);
+  margin: 0;
+  top: 150px;
+  left: 0;
 }
-.list .item .img {
-  width: 100%;
-  height: 100%;
+.list .item {
+  display: block;
+  width: 25%;
+  height: 140px;
   background-size: cover;
   background-position: center center;
-  -webkit-transform-origin: 100% 50%;
-  -ms-transform-origin: 100% 50%;
-  transform-origin: 100% 50%;
-  z-index: 10;
-  position: relative;
+  /* background-repeat: no-repeat; */
+  margin: 5px;
 }
+
+.list .item.item-1 {
+  background-image: url("https://res.cloudinary.com/malaika/image/upload/v1564674458/51UW1849rJL._SX466__2.jpg");
+}
+.list .item.item-2 {
+  background-image: url("https://res.cloudinary.com/malaika/image/upload/v1564674458/51UW1849rJL._SX466__1.jpg");
+}
+.list .item.item-3 {
+  background-image: url("https://res.cloudinary.com/malaika/image/upload/v1564674458/51UW1849rJL._SX466__3.jpg");
+}
+.list .item.item-4 {
+  background-image: url("https://res.cloudinary.com/malaika/image/upload/v1564674458/51UW1849rJL._SX466__4.jpg");
+}
+.list .item.item-5 {
+  background-image: url("https://res.cloudinary.com/malaika/image/upload/v1564674458/51UW1849rJL._SX466__5.jpg");
+}
+.list .item.item-6 {
+  background-image: url("https://res.cloudinary.com/malaika/image/upload/v1564674458/51UW1849rJL._SX466__6.jpg");
+}
+
+
 .model {
+  position: absolute;
   margin-left: 0;
   z-index: 99;
-  width: 300px;
-  height: 500px;
-  bottom: 0%;
-  top: 208px;
-  left: 900px;
-  position: fixed;
+  width: 280px;
+  bottom: 0;
+  right: 180px;
+  display: none;
 }
 .logo {
-  background: url(https://res.cloudinary.com/malaika/image/upload/v1564600345/BeFunky-photo_2.png)
-    no-repeat;
-  top: 300px;
+  background: url(https://res.cloudinary.com/malaika/image/upload/v1564600345/BeFunky-photo_2.png) no-repeat;
+  top: 50px;
   border: 10px solid white;
-  left: 300px;
+  left: calc(50% - 65px);
   position: absolute;
   z-index: 99;
   width: 130px;
   height: 57px;
 }
 .container {
+  margin: 0 auto;
   border-radius: 20px;
-  top: 11%;
-  left: 10%;
-  width: 80%;
-  height: 80%;
-  position: absolute;
+  width: 85%;
+  height: 100%;
   border: 7px solid #f36557;
+  position: relative;
+  display: block;
 }
-.container::after {
+.container:after {
   content: "...";
   position: absolute;
   color: #f36557;
@@ -94,23 +99,72 @@ body {
   top: -40px;
   left: 10px;
 }
-.container::before {
-  content: "2019";
+.container:before {
+  content: "2020";
   position: absolute;
   color: #5e5f5d;
   font-size: 10px;
-  top: 60px;
-  left: 100px;
+  bottom: 25px;
+  right: 25px;
+  text-align: right;
 }
 .item:nth-child(7) {
   margin-left: 148px;
   height: 327px;
 }
-@media only screen and (max-width: 768px) {
-  .model {
+
+
+
+
+
+/* Medium */
+@media only screen and (min-width: 650px) {
+  .list {
+    flex-wrap: nowrap;
+  }
+  .list .item {
+    height: 260px;
+  }
+  .list .item.item-5 {
     display: none;
   }
-  .logo {
+  .list .item.item-6 {
     display: none;
+  }
+}
+
+/* Medium */
+@media only screen and (min-width: 950px) {
+  .list {
+    top: 260px;
+  }
+  .list .item {
+    height: 260px;
+  }
+  .list .item.item-5 {
+    display: block;
+  }
+  .model {
+    display: block;
+  }
+  .logo {
+    top: 230px;
+    bottom: auto;
+    border: 10px solid white;
+    left: 100px;
+  }
+}
+
+/* Full Screen */
+@media only screen and (min-width: 1300px) {
+  .list .item {
+    height: 260px;
+  }
+  .list .item.item-6 {
+    display: block;
+  }
+  .model {
+    width: 340px;
+    right: 300px;
   }
 }
